@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using CountryApp.Constants;
+using System.ComponentModel.DataAnnotations;
 
 namespace CountryApp.Models
 {
@@ -19,5 +20,8 @@ namespace CountryApp.Models
 
         [Required, Display(Name = "Image url")]
         public string ImageUrl { get; set; }
+
+        [Required]
+        public PartsOfTheWorld PartsOfTheWorld { get; set; }
     }
 }

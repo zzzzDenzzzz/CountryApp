@@ -1,4 +1,5 @@
-﻿@model Country
+﻿@using CountryApp.Constants;
+@model Country
 @{
     ViewData["Title"] = "Index";
 }
@@ -28,6 +29,13 @@
         <label asp-for="ImageUrl"></label>
         <input asp-for="ImageUrl" class="form-control" />
         <span asp-validation-for="ImageUrl" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="PartsOfTheWorld"></label>
+        <select asp-for="PartsOfTheWorld" asp-items="Html.GetEnumSelectList<PartsOfTheWorld>()">
+            <option value="">Choose a Part of the World</option>
+        </select>
+        <span asp-validation-for="PartsOfTheWorld" class="text-danger"></span>
     </div>
     <div class="form-group">
         <label asp-for="Description"></label>
