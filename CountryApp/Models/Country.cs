@@ -23,5 +23,7 @@ namespace CountryApp.Models
 
         [Required(ErrorMessage = "Parts of the World field is empty"), Display(Name = "Parts of the World")]
         public PartsOfTheWorld PartsOfTheWorld { get; set; }
+
+        public ICollection<Language> Languages { get; set; }
     }
 }
