@@ -13,7 +13,6 @@
     <div class="input-group mb-3">
         <label asp-for="Name" class="input-group-text"></label>
         <input asp-for="Name" class="form-control" />
-        <span asp-validation-for="Name" class="text-danger"></span>
     </div>
     <div class="input-group mb-3">
         <label asp-for="Area" class="input-group-text"></label>
@@ -23,24 +22,20 @@
     <div class="input-group mb-3">
         <label asp-for="Population" class="input-group-text"></label>
         <input asp-for="Population" class="form-control" />
-        <span asp-validation-for="Population" class="text-danger"></span>
     </div>
     <div class="input-group mb-3">
         <label asp-for="ImageUrl" class="input-group-text"></label>
         <input asp-for="ImageUrl" class="form-control" />
-        <span asp-validation-for="ImageUrl" class="text-danger"></span>
     </div>
     <div class="input-group mb-3">
         <label asp-for="PartsOfTheWorld" class="input-group-text text-info"></label>
         <select class="form-select" asp-for="PartsOfTheWorld" asp-items="Html.GetEnumSelectList<PartsOfTheWorld>()">
-            <option value="">Choose a Part of the World</option>
+            <option value="">Choose...</option>
         </select>
-        <span asp-validation-for="PartsOfTheWorld" class="text-danger"></span>
     </div>
     <div class="input-group-sm mb-3">
         <label asp-for="Description" class="input-group-text text-success"></label>
         <textarea asp-for="Description" class="form-control" rows="10"></textarea>
-        <span asp-validation-for="Description" class="text-danger"></span>
     </div>
     <button class="btn btn-outline-primary w-25 mt-2">Add</button>
 </form>
