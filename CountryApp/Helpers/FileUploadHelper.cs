@@ -13,7 +13,7 @@
                 return @$"/upload/{fileName}";
             }
 
-            throw new NotImplementedException("File not upload");
+            throw new InvalidOperationException("File not uploaded");
         }
     }
 }

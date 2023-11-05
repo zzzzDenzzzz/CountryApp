@@ -32,8 +32,15 @@ namespace CountryApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Add(Country country, IFormFile image)
         {
-            country.ImageUrl = await FileUploadHelper.UploadAsync(image);
-
+            try
+            {
+                country.ImageUrl = await FileUploadHelper.UploadAsync(image);
+            }
+            catch (InvalidOperationException)
+            {
+                throw;
+            }
+            
             TempData["Status"] = "New Country added";
             await countryDbContext.Countries.AddAsync(country);
             await countryDbContext.SaveChangesAsync();
