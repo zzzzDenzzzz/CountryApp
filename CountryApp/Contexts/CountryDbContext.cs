@@ -10,15 +10,5 @@ namespace CountryApp.Contexts
         }
 
         public DbSet<Country> Countries { get; set; }
-
-        public DbSet<Language> Languages { get; set; }
-
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Country>()
-                .HasMany(x => x.Languages)
-                .WithMany(x => x.Country)
-                .UsingEntity<CountryLanguage>();
-        }
     }
 }
