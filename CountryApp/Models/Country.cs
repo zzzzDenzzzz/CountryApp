@@ -1,4 +1,5 @@
 ﻿using CountryApp.Constants;
+using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 
 namespace CountryApp.Models
@@ -18,7 +19,8 @@ namespace CountryApp.Models
 
         public string Description { get; set; }
 
-        [Required(ErrorMessage = "Image url field is empty"), Display(Name = "Image url")]
+        [Required(ErrorMessage = "Image url field is empty")]
+        [DataType(DataType.Upload)]
         public string ImageUrl { get; set; }
 
         [Required(ErrorMessage = "Parts of the World field is empty"), Display(Name = "Parts of the World")]

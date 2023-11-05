@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <Folder Include="ViewModel\" />
+    <Folder Include="wwwroot\upload\" />
   </ItemGroup>
 
 </Project>

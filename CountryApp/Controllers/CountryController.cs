@@ -1,4 +1,5 @@
 ﻿using CountryApp.Contexts;
+using CountryApp.Helpers;
 using CountryApp.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -29,17 +30,15 @@ namespace CountryApp.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Add(Country country)
+        public async Task<IActionResult> Add(Country country, IFormFile image)
         {
-            if (ModelState.IsValid)
-            {
-                TempData["Status"] = "New Country added";
-                await countryDbContext.Countries.AddAsync(country);
-                await countryDbContext.SaveChangesAsync();
+            country.ImageUrl = await FileUploadHelper.UploadAsync(image);
 
-                return RedirectToAction("Index");
-            }
-            return View(country);
+            TempData["Status"] = "New Country added";
+            await countryDbContext.Countries.AddAsync(country);
+            await countryDbContext.SaveChangesAsync();
+
+            return RedirectToAction("Index");
         }
     }
 }
