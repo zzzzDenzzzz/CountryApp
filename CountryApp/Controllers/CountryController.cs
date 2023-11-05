@@ -28,6 +28,7 @@ namespace CountryApp.Controllers
         }
 
         [HttpPost]
+        [AutoValidateAntiforgeryToken]
         public async Task<IActionResult> Add(Country country)
         {
             if (ModelState.IsValid)

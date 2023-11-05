@@ -16,18 +16,27 @@
     <div class="row">
         @foreach (var item in Model)
         {
-            <div class="card col-4" style="width: 18rem;">
-                <img src="@item.ImageUrl" class="card-img-top" alt="...">
+            <div class="card col-4 m-2" style="width: 18rem;">
+                <img src="@item.ImageUrl" class="card-img-top m-1" alt="..." style="height: 10rem;">
                 <div class="card-body">
-                    <h5 class="card-title">@item.Name</h5>
-                    <h7 class="card-title">@item.PartsOfTheWorld</h7>
+                    <h5 class="card-title fw-bold text-uppercase text-center">@item.Name</h5>
+                    <h7 class="card-title font-monospace text-center fst-italic text-info">@item.PartsOfTheWorld</h7>
                 </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Area @item.Area</li>
-                    <li class="list-group-item">Population @item.Population</li>
-                </ul>
-                <div class="card-body">
-                    <p class="card-text">@Html.Raw(@item.Description)</p>
+
+                <div class="d-flex justify-content-between shadow p-3 mb-2 bg-body-tertiary rounded">
+                    <p class="fw-bolder">Area</p>
+                    <p class="fw-lighter">@item.Area</p>
+                </div>
+
+                <div class="d-flex justify-content-between shadow p-3 mb-2 bg-body-tertiary rounded">
+                    <p class="fw-bolder">Population</p>
+                    <p class="fw-lighter">@item.Population</p>
+                </div>
+
+                <p class="text-center text-decoration-underline">Description</p>
+
+                <div class="card-body" style="height: 10rem;">
+                    <p class="card-text lh-1">@Html.Raw(@item.Description)</p>
                 </div>
             </div>
         }
