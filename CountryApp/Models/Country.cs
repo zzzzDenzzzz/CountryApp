@@ -1,5 +1,4 @@
 ﻿using CountryApp.Constants;
-using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 
 namespace CountryApp.Models
@@ -25,5 +24,9 @@ namespace CountryApp.Models
 
         [Required(ErrorMessage = "Parts of the World field is empty"), Display(Name = "Parts of the World")]
         public PartsOfTheWorld PartsOfTheWorld { get; set; }
+
+        public int CategoryId { get; set; }
+
+        public Category Category { get; set; }
     }
 }
