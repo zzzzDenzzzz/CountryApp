@@ -10,5 +10,7 @@ namespace CountryApp.Contexts
         }
 
         public DbSet<Country> Countries { get; set; }
+
+        public DbSet<Category> Categories { get; set; }
     }
 }

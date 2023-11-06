@@ -21,6 +21,23 @@ namespace CountryApp.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("CountryApp.Models.Category", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Categories");
+                });
+
             modelBuilder.Entity("CountryApp.Models.Country", b =>
                 {
                     b.Property<int>("Id")
@@ -31,6 +48,9 @@ namespace CountryApp.Migrations
 
                     b.Property<decimal>("Area")
                         .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -53,55 +73,25 @@ namespace CountryApp.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CategoryId");
+
                     b.ToTable("Countries");
                 });
 
-            modelBuilder.Entity("CountryApp.Models.CountryLanguage", b =>
+            modelBuilder.Entity("CountryApp.Models.Country", b =>
                 {
-                    b.Property<int>("CountryId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("LanguageId")
-                        .HasColumnType("int");
-
-                    b.HasKey("CountryId", "LanguageId");
-
-                    b.HasIndex("LanguageId");
-
-                    b.ToTable("CountryLanguage");
-                });
-
-            modelBuilder.Entity("CountryApp.Models.Language", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Languages");
-                });
-
-            modelBuilder.Entity("CountryApp.Models.CountryLanguage", b =>
-                {
-                    b.HasOne("CountryApp.Models.Country", null)
-                        .WithMany()
-                        .HasForeignKey("CountryId")
+                    b.HasOne("CountryApp.Models.Category", "Category")
+                        .WithMany("Countries")
+                        .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("CountryApp.Models.Language", null)
-                        .WithMany()
-                        .HasForeignKey("LanguageId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Navigation("Category");
+                });
+
+            modelBuilder.Entity("CountryApp.Models.Category", b =>
+                {
+                    b.Navigation("Countries");
                 });
 #pragma warning restore 612, 618
         }
