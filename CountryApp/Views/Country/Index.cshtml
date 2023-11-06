@@ -21,6 +21,7 @@
                 <div class="card-body">
                     <h5 class="card-title fw-bold text-uppercase text-center">@item.Name</h5>
                     <h7 class="card-title font-monospace text-center fst-italic text-info">@item.PartsOfTheWorld</h7>
+                    @* <h7 class="card-title font-monospace text-center fst-italic text-info">@item.Category.Name</h7> *@
                 </div>
 
                 <div class="d-flex justify-content-between shadow p-3 mb-2 bg-body-tertiary rounded">
@@ -34,7 +35,6 @@
                 </div>
 
                 <p class="text-center text-decoration-underline">Description</p>
-
                 <div class="card-body" style="height: 10rem;">
                     <p class="card-text lh-1">@Html.Raw(@item.Description)</p>
                 </div>

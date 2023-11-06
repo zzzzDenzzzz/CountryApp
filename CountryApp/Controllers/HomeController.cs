@@ -1,15 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CountryApp.Contexts;
+using Microsoft.AspNetCore.Mvc;
 
 namespace CountryApp.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }
+        private readonly CountryDbContext countryDbContext;
 
         public IActionResult Index()
         {

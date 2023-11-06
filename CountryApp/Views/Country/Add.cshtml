@@ -21,8 +21,9 @@
         <input asp-for="Population" class="form-control" />
     </div>
     <div class="input-group mb-3">
-        <label asp-for="CategoryId" class="input-group-text"></label>
-        <select asp-for="CategoryId" asp-items="ViewBag.categories" class="form-control">
+        <label asp-for="CategoryId" class="input-group-text text-info"></label>
+        <select asp-for="CategoryId" asp-items="ViewBag.categories" class="form-select">
+            <option value="">...</option>
         </select>
     </div>
     <div class="input-group mb-3">
