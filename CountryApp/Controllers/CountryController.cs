@@ -36,9 +36,9 @@ namespace CountryApp.Controllers
             {
                 country.ImageUrl = await FileUploadHelper.UploadAsync(image);
             }
-            catch (InvalidOperationException)
+            catch (InvalidOperationException ex)
             {
-                throw;
+                return RedirectToAction("Index", "Error", new { error = ex.Message });
             }
             
             TempData["Status"] = "New Country added";
