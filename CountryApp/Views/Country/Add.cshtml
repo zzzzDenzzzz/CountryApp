@@ -21,9 +21,15 @@
         <input asp-for="Population" class="form-control" />
     </div>
     <div class="input-group mb-3">
+        <label asp-for="CategoryId" class="input-group-text"></label>
+        <select asp-for="CategoryId" asp-items="ViewBag.categories" class="form-control">
+        </select>
+    </div>
+    <div class="input-group mb-3">
         <label for="formFile" class="form-label"></label>
         <input class="form-control" type="file" name="image" id="formFile">
     </div>
+
     <div class="input-group mb-3">
         <label asp-for="PartsOfTheWorld" class="input-group-text text-info"></label>
         <select class="form-select" asp-for="PartsOfTheWorld" asp-items="Html.GetEnumSelectList<PartsOfTheWorld>()">

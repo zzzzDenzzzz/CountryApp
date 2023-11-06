@@ -1,4 +1,5 @@
 using CountryApp.Contexts;
+using CountryApp.Models;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +12,8 @@ builder.Services.AddDbContext<CountryDbContext>(option =>
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
+
+SeedCategory.Seed(app);
 
 if (!app.Environment.IsDevelopment())
 {

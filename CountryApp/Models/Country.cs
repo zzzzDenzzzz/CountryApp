@@ -26,6 +26,7 @@ namespace CountryApp.Models
         [Required(ErrorMessage = "Parts of the World field is empty"), Display(Name = "Parts of the World")]
         public PartsOfTheWorld PartsOfTheWorld { get; set; }
 
+        [Required(ErrorMessage = "Category field is empty"), Display(Name = "Category")]
         public int CategoryId { get; set; }
 
         public Category Category { get; set; }
